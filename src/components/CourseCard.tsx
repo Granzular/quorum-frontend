@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import type { Course } from "../models"
 
 interface Props {
@@ -6,8 +7,13 @@ interface Props {
 }
 
 const CourseCard = ({course}:Props) => {
+   const navigate = useNavigate();
+  const handleClick = ()=>{
+    navigate("/library/course/"+course.id)
+
+  }
   return (
-    <div tabIndex={1}  className='transition-colors duration-500 hover:bg-gray-800 hover:border-white hover:text-white hover:-translate-y-1 bg-gray-50 shadow border border-gray-300 rounded-2xl p-3 h-48 overflow-y-scroll scrollbar-none'>
+    <div onClick={handleClick} tabIndex={1} title="go to course" className='cursor-pointer transition-colors duration-500 hover:bg-gray-800 hover:border-white hover:text-white hover:-translate-y-1 bg-gray-50 shadow border border-gray-300 rounded-2xl p-3 h-48 overflow-y-scroll scrollbar-none'>
                 <p className='text-blue-600 text-xl'>{course.code}</p>
                 <p>title: {course.title}</p>
                 <p>level: {course.level}</p>
