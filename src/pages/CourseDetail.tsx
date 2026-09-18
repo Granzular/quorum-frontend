@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import type { Course, Resource } from "../models";
-import { getCourse } from "../api/Course";
-import { getResource} from "../api/Resource";
+import { getCourse } from "../api/course";
+import { getResource} from "../api/resource";
 import  NotAvailableCard from "../components/NotAvailableCard";
 import MarkdownContent from "../components/MarkdownContent";
 
@@ -16,7 +16,7 @@ const CourseDetail = () => {
             const data = await getCourse(id)
             setCourse(data);
             const data2: Resource[] = []
-            data?.resource.map(async (res)=>{
+            data?.resource.map(async (res: string)=>{
             data2.push(await getResource(res))
             setResources(data2);
         })

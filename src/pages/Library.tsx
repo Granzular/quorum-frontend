@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { getAllCourses } from '../api/Course'
+import { getAllCourses } from '../api/course'
 import type { Course} from '../models'
 import SearchForm from '../components/SearchForm';
 import CourseCard from '../components/CourseCard';
