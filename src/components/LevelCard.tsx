@@ -45,7 +45,7 @@ const SemesterCard = ({courses,semester}:SemesterProps) => {
   return (
     <>
     <h4 className="text-gray-800 mb-2 font-medium">{semester}</h4>
-                <ul className='grid md:grid-cols-5 grid-cols-4'>
+                <ul className='grid md:grid-cols-5 grid-cols-3 gap-2'>
                   {courses.map((c)=>
                   <li className='hover:bg-blue-600 rounded-2xl bg-blue-950 text-amber-50 text-center font-bold m-3 p-0'><Link className="block w-full py-2 px-4 m-0 rounded-2xl" to={`/library/course/${c.id}`}>{c.code}</Link></li> 
                   )}                    

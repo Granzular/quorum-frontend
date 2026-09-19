@@ -58,9 +58,9 @@ function Library() {
    <>
    <h2 className='mb-5 text-3xl text-black'>Library</h2>
    <section className='rounded border border-gray-300 min-h-50 mb-30'>
-           <div className='rounded flex flex-row border border-gray-300 px-6 py-3 bg-gray-100 backdrop-blur'>
-            <h2 className='w-1/2 text-xl text-gray-900 font-light'>Course Quick Search</h2>
-            <SearchForm placeholder='search course' action={handleSearch} filterParams={["100","200","300","400","500"]}/>
+           <div className='rounded flex flex-col md:flex-row border border-gray-300 px-6 py-3 bg-gray-100 backdrop-blur gap-2 '>
+            <h2 className='md:w-1/2 text-xl text-gray-900 font-light'>Course Quick Search</h2>
+            <SearchForm className='justify-end' placeholder='search course' action={handleSearch} filterParams={["100","200","300","400","500"]}/>
             </div>
             
            <div className='max-h-110 overflow-y-scroll scrollbar-thin grid  sm:grid-cols-2 lg:grid-cols-3 gap-2 p-2 m-5 '>
