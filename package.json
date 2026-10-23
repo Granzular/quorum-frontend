@@ -1,5 +1,5 @@
 {
-  "name": "finance-dashboard",
+  "name": "quorum",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,8 +12,14 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
+    "@tiptap/extension-image": "^3.32.0",
+    "@tiptap/pm": "^3.32.0",
+    "@tiptap/react": "^3.32.0",
+    "@tiptap/starter-kit": "^3.32.0",
     "axios": "^1.20.0",
     "formik": "^2.4.9",
+    "framer-motion": "^14.6.0",
+    "lucide-react": "^1.61.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-markdown": "^10.1.0",
