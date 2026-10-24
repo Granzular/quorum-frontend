@@ -13,7 +13,7 @@ interface Props {
 const LevelCard = ({level,courses}:Props) => {
 
   return (
-   <div tabIndex={1}  className='transition-colors duration-500 hover:border-2 hover:border-blue-600 bg-gray-50 shadow border border-gray-300 rounded-2xl p-3 h-90 overflow-y-scroll scrollbar-none'>
+   <div tabIndex={0} className='transition-colors duration-500 hover:border-blue-600 bg-gray-50 text-gray-700 shadow border border-gray-300 rounded-2xl p-3 h-90 overflow-y-auto focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600'>
                 <h3 className='text-blue-800 font-bold text-xl mb-3'>{level} Level</h3>
 
                <SemesterCard courses={courses.first} semester="First Semester"/>
@@ -45,9 +45,9 @@ const SemesterCard = ({courses,semester}:SemesterProps) => {
   return (
     <>
     <h4 className="text-gray-800 mb-2 font-medium">{semester}</h4>
-                <ul className='grid md:grid-cols-5 grid-cols-3 gap-2'>
+                <ul className='grid grid-cols-2 gap-2 sm:grid-cols-3'>
                   {courses.map((c)=>
-                  <li className='hover:bg-blue-600 rounded-2xl bg-blue-950 text-amber-50 text-center font-bold m-3 p-0'><Link className="block w-full py-2 px-4 m-0 rounded-2xl" to={`/library/course/${c.id}`}>{c.code}</Link></li> 
+                  <li key={c.id} className='min-w-0 hover:bg-blue-600 rounded-2xl bg-blue-950 text-amber-50 text-center font-bold'><Link className="block w-full break-words rounded-2xl px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600" to={`/library/course/${c.id}`}>{c.code}</Link></li>
                   )}                    
                 </ul>
     </>

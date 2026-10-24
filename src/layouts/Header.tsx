@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { CrumbleText} from '../components/ui/anim-text';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ const Header: React.FC = () => {
      href: "/library"
     },
      {label: "community",
-     href: "/community"
+     href: "/#community-preview"
     }
   ]
 
@@ -23,7 +24,12 @@ const Header: React.FC = () => {
     <header className="sticky top-0 z-50 mb-15 border-b border-gray-300 bg-white/80 shadow-gray-300 backdrop-blur-sm">
       <div className="flex h-25 items-center justify-between p-5">
         <h1 className="w-1/2 text-4xl font-medium text-blue-600">
-          <Link to="/" onClick={closeMenu}>Quorum</Link>
+          <Link to="/" onClick={closeMenu}>
+          <CrumbleText 
+            text="Quorum"
+            interval={15}
+            />
+          </Link>
         </h1>
 
         {/* Desktop navigation */}
@@ -58,7 +64,7 @@ const Header: React.FC = () => {
           <ul className="flex flex-col gap-2">
            {
             nav.map((l)=>(
-            <NavLink  key={l.href} text={l.label} urlLink={l.href} />))
+            <NavLink key={l.href} text={l.label} urlLink={l.href} onNavigate={closeMenu} />))
             }</ul>
         </nav>
       )}
@@ -75,9 +81,15 @@ interface NavLinkProps {
 const NavLink = ({ text, urlLink, onNavigate }: NavLinkProps) => {
   return (
     <li className="capitalize list-none p-2 text-gray-800 hover:text-blue-600">
-      <Link to={urlLink} onClick={onNavigate}>
-        {text}
-      </Link>
+      {urlLink.includes("#") ? (
+        <a href={urlLink} onClick={onNavigate} className="rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
+          {text} <span className="text-xs text-blue-600">Preview</span>
+        </a>
+      ) : (
+        <Link to={urlLink} onClick={onNavigate} className="rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600">
+          {text}
+        </Link>
+      )}
     </li>
   )
 }

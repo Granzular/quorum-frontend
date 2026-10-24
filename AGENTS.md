@@ -124,3 +124,18 @@ Do not assume missing documentation defines behavior.
 - Do not expand a feature's scope merely because nearby code could be improved.
 - Flag unrelated defects when they pose a significant security, data-integrity, or stability risk, but do not automatically fix them.
 - Verify both the new behavior and any existing behavior affected by the changes.
+
+
+## UI and Design Guidelines
+
+- Treat the existing implementation as the primary design reference.
+- Preserve the established visual identity when extending existing pages.
+- Inspect existing pages and reusable components before designing new sections.
+- Reuse existing typography, colors, spacing, borders, shadows, and interaction patterns.
+- New sections should feel like part of the same product, not independent templates.
+- Use the existing responsive layout conventions and verify mobile behavior.
+- Maintain clear visual hierarchy and appropriate whitespace.
+- Avoid unnecessary decorative elements, excessive gradients, and inconsistent card styles.
+- Do not redesign working sections unless the task explicitly requires it.
+- When a new design decision cannot be inferred from the existing implementation, use the simplest consistent solution.
+- Before implementing a substantial visual change, explain the proposed layout and its relationship to the existing page.

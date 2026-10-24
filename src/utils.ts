@@ -1,5 +1,15 @@
 import type { Course } from "./models";
 
+export function filterCourses(courses: Course[], query: string, level = ""): Course[] {
+    const tokens = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+
+    return courses.filter((course) => {
+        const searchableText = `${course.code} ${course.title ?? ""}`.toLowerCase();
+        return (!level || course.level === level)
+            && tokens.every((token) => searchableText.includes(token));
+    });
+}
+
 interface CourseSchema {
     one: {
         first: Course[],

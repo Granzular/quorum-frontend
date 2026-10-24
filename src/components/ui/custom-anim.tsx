@@ -93,7 +93,9 @@ export  function RippleBackground({
   const startTimeRef = useRef(0);
   const colorRef = useRef(backgroundColor);
 
-  colorRef.current = backgroundColor;
+  useEffect(() => {
+    colorRef.current = backgroundColor;
+  }, [backgroundColor]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
